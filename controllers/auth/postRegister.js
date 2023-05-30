@@ -27,7 +27,7 @@ let postRegister = async (req, res) => {
             },
             process.env.JWT_KEY,
             {
-                expiresIn: "5m"
+                expiresIn: "1h"
             }
         )
 
