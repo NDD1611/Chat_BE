@@ -41,7 +41,7 @@ const postInvite = async (req, res) => {
 
     friendsUpdates.updateFriendsPendingInvitations(targetUser._id.toString())
 
-    return res.status(200).send('Initation has been sent')
+    return res.status(200).send('Invitation has been sent')
 }
 
 module.exports = postInvite
