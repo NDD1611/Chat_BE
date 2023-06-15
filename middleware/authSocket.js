@@ -9,6 +9,7 @@ const verifyTokenSocket = (socket, next) => {
         const decoded = jwt.verify(token, config.JWT_KEY)
         socket.user = decoded
     } catch (err) {
+        console.log(err, 'Author Socket middleware')
         const socketError = new Error("NOT_AUTHORIZED")
         return next(socketError)
     }

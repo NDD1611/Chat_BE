@@ -18,7 +18,7 @@ let postLogin = async (req, res) => {
                     },
                     process.env.JWT_KEY,
                     {
-                        expiresIn: "1h"
+                        expiresIn: process.env.EXPIRE_TOKEN
                     }
                 )
 
@@ -26,13 +26,14 @@ let postLogin = async (req, res) => {
                     userDetails: {
                         mail: user.mail,
                         token: token,
-                        username: user.username
+                        username: user.username,
+                        _id: user._id
                     }
                 })
             }
         }
 
-        return res.status(400).send('Inalid credentials. Please try again.')
+        return res.status(400).send('Invalid credentials. Please try again.')
     } catch (err) {
         return res.status(500).send("Server error. Please try again.")
     }

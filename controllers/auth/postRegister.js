@@ -27,7 +27,7 @@ let postRegister = async (req, res) => {
             },
             process.env.JWT_KEY,
             {
-                expiresIn: "1h"
+                expiresIn: process.env.EXPIRE_TOKEN
             }
         )
 
@@ -35,7 +35,8 @@ let postRegister = async (req, res) => {
             userDetails: {
                 mail: user.mail,
                 token: token,
-                username: user.username
+                username: user.username,
+                _id: user._id
             }
         })
 

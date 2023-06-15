@@ -10,7 +10,7 @@ const verifyToken = (req, res, next) => {
         const decoded = jwt.verify(token, process.env.JWT_KEY)
         req.user = decoded
     } catch (err) {
-        console.log(err)
+        console.log(err, 'Author middleware')
         return res.status(403).send("Invalid Token")
     }
 
